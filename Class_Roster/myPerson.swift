@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+class Person {
+    
+    var firstName : String
+    var lastName : String
+    var isStudent : Bool
+    
+    init(firstName: String, lastName: String, isStudent: Bool){
+        self.firstName = firstName
+        self.lastName = lastName
+        self.isStudent = isStudent
+    }
+    
+    func myFirstName() -> String{
+        return self.firstName
+    }
+    
+    func myLastName() -> String{
+        return self.lastName
+    }
+    
+    func myFullName() -> String{
+        return self.firstName+" "+self.lastName
+    }
+}

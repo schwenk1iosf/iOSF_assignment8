@@ -1,3 +1,4 @@
+
 //
 //  DetailViewController.swift
 //  Class_Roster
@@ -6,4 +7,21 @@
 //  Copyright (c) 2014 schwenk. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class DetailViewController: UIViewController {
+    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    
+    @IBOutlet weak var lastNameLabel: UILabel!
+    
+    var selectedPerson = Person(firstName: "", lastName: "", isStudent: false)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = self.selectedPerson.myFullName()
+        self.firstNameLabel.text = self.selectedPerson.myFirstName()
+        self.lastNameLabel.text = self.selectedPerson.myLastName()
+    }
+
+}
