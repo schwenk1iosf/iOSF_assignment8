@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class Person {
     
     var firstName : String
     var lastName : String
     var isStudent : Bool
+    var studentPic : UIImage?
     
     init(firstName: String, lastName: String, isStudent: Bool){
         self.firstName = firstName
