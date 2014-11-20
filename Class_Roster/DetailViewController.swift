@@ -7,6 +7,7 @@
 //  Copyright (c) 2014 schwenk. All rights reserved.
 //
 
+
 import UIKit
 
 class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
         self.firstNameField.delegate = self
         self.lastNameField.delegate = self
         self.title = self.selectedPerson.myFullName()
+        self.imageView.image = selectedPerson.studentPic
         //self.firstNameLabel.text = self.selectedPerson.myFirstName()
         //self.lastNameLabel.text = self.selectedPerson.myLastName()
     }
@@ -55,9 +57,10 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
         let image = info[UIImagePickerControllerEditedImage] as UIImage
         self.imageView.image = image
         
-        imagePickerController.dismissViewControllerAnimated(true, completion: nil)
+        self.imagePickerController.dismissViewControllerAnimated(true, completion: nil)
         
-        selectedPerson.studentPic = image
+        self.selectedPerson.studentPic = image
+        
     }
     
     
