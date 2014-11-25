@@ -58,7 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         if personToDisplay.myPic() != nil {
-            println("not empty")
             cell.personImageView.image = personToDisplay.studentPic
         }
         
