@@ -19,8 +19,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         self.loadFromPlist()
         self.tableView.dataSource = self
-        
-        self.tableView.dataSource = self
         self.tableView.delegate = self
         
     }
@@ -37,6 +35,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    
+//    func loadFromArchive() -> [Person] {
+//        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, ,UserDomainMask, true)[0] as String
+//        
+//        if let peopleFromArchive = NSKeyedUnarchiver.unarchiveObjectWithFile(documentsPath + "/archive" as? [Person]{
+//            return Person
+//        }
+//    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.names.count
@@ -48,8 +54,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         var personToDisplay = self.names[indexPath.row]
         cell.nameLabel.text = personToDisplay.myFullName()
-        cell.studentLabel.text = "student"
+        
+        if personToDisplay.isStudent {
+            cell.studentLabel.text = "student"
+        }
+        
         cell.personImageView.backgroundColor = UIColor.grayColor()
+        cell.personImageView.image = personToDisplay.studentPic
         return cell
     }
     
@@ -61,4 +72,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             detailViewController.selectedPerson = personToPass
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
 }
