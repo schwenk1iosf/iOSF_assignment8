@@ -17,10 +17,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.loadFromPlist()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        if let namesFromArchive = self.loadFromArchive() as [Person]? {
+            self.names = namesFromArchive
+        } else {
+            self.loadFromPlist()
+            self.saveToArchive()
+        }
+        var hasLaunched = NSUserDefaults.standardUserDefaults().boolForKey("firstTime")
+        
+        if hasLaunched == false {
+            //this is first launch
+            println("first launch")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstTime")
+        }
+
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        self.saveToArchive()
     }
     
     func loadFromPlist() {
@@ -36,14 +56,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-//    func loadFromArchive() -> [Person] {
-//        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, ,UserDomainMask, true)[0] as String
-//        
-//        if let peopleFromArchive = NSKeyedUnarchiver.unarchiveObjectWithFile(documentsPath + "/archive" as? [Person]{
-//            return Person
-//        }
-//    }
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.names.count
     }
@@ -55,7 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var personToDisplay = self.names[indexPath.row]
         cell.nameLabel.text = personToDisplay.myFullName()
         
-        if personToDisplay.isStudent {
+        if  personToDisplay.isStudent {
             cell.studentLabel.text = "student"
         }
         
@@ -73,9 +85,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.reloadData()
+    func saveToArchive() {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        NSKeyedArchiver.archiveRootObject(self.names, toFile: documentsPath + "/archive1")
     }
-
+    
+    func loadFromArchive() -> [Person]? {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        
+        if let namesFromArchive = NSKeyedUnarchiver.unarchiveObjectWithFile(documentsPath + "/archive1") as? [Person]{
+            return namesFromArchive
+        }
+        return nil
+    }
 }

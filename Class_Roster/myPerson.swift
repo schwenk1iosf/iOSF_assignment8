@@ -43,7 +43,7 @@ class Person : NSObject, NSCoding {
         self.firstName = aDecoder.decodeObjectForKey("firstName") as String
         self.lastName = aDecoder.decodeObjectForKey("lastName") as String
         self.isStudent = aDecoder.decodeObjectForKey("isStudent") as Bool
-        if let decodedImage = aDecoder.decodeObjectForKey("image") as UIImage?{
+        if let decodedImage = aDecoder.decodeObjectForKey("image") as? UIImage{
             self.studentPic = decodedImage
         }
     }
@@ -51,6 +51,7 @@ class Person : NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.firstName, forKey: "firstName")
         aCoder.encodeObject(self.lastName, forKey: "lastName")
+        aCoder.encodeObject(self.isStudent, forKey: "isStudent")
         if self.studentPic != nil {
             aCoder.encodeObject(self.studentPic, forKey: "image")
         }

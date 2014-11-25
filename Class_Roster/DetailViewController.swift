@@ -23,10 +23,13 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
         self.lastNameField.delegate = self
         self.title = self.selectedPerson.myFullName()
         self.imageView.image = selectedPerson.studentPic
-        //self.firstNameLabel.text = self.selectedPerson.myFirstName()
-        //self.lastNameLabel.text = self.selectedPerson.myLastName()
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.selectedPerson.firstName = self.firstNameField.text
+        self.selectedPerson.lastName = self.lastNameField.text
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -62,7 +65,4 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
         self.selectedPerson.studentPic = image
         
     }
-    
-    
-
 }
