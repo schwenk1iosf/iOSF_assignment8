@@ -17,6 +17,7 @@
 		9D30EDE71A0F30C500A0B0E4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D30EDE61A0F30C500A0B0E4 /* DetailViewController.swift */; };
 		9D673F5D1A1AFAA3002F1604 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D673F5C1A1AFAA3002F1604 /* PersonTableViewCell.swift */; };
 		9D673F611A1B06A2002F1604 /* Roster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D673F601A1B06A2002F1604 /* Roster.plist */; };
+		9D6CDCEB1A2451C1004CEFAA /* generic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D6CDCEA1A2451C1004CEFAA /* generic_user.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9D30EDE61A0F30C500A0B0E4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9D673F5C1A1AFAA3002F1604 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		9D673F601A1B06A2002F1604 /* Roster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Roster.plist; sourceTree = "<group>"; };
+		9D6CDCEA1A2451C1004CEFAA /* generic_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generic_user.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		9D30EDE11A0F2CC800A0B0E4 /* View Layer */ = {
 			isa = PBXGroup;
 			children = (
+				9D6CDCEA1A2451C1004CEFAA /* generic_user.png */,
 				9D30EDC51A0F2C2300A0B0E4 /* Main.storyboard */,
 				9D30EDC81A0F2C2300A0B0E4 /* Images.xcassets */,
 				9D30EDCA1A0F2C2300A0B0E4 /* LaunchScreen.xib */,
@@ -232,6 +235,7 @@
 				9D30EDC71A0F2C2300A0B0E4 /* Main.storyboard in Resources */,
 				9D673F611A1B06A2002F1604 /* Roster.plist in Resources */,
 				9D30EDCC1A0F2C2300A0B0E4 /* LaunchScreen.xib in Resources */,
+				9D6CDCEB1A2451C1004CEFAA /* generic_user.png in Resources */,
 				9D30EDC91A0F2C2300A0B0E4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
