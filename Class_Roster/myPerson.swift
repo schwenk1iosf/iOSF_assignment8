@@ -6,16 +6,12 @@
 //  Copyright (c) 2014 schwenk. All rights reserved.
 //
 
-/*
-Implement persistence into your app. Skip NSUserDefaults for now, use the NSCoding protocol and NSKeyedArchiver/Unarchiver to persist your people array to disk.
-Make sure you have all the functionality from the previous assignments as well, this should be a pretty fully functioning app at this point.
-*/
 
 import Foundation
 import UIKit
 
 class Person : NSObject, NSCoding {
-    
+    //Student properties. Student picture is optional
     var firstName : String
     var lastName : String
     var isStudent : Bool
@@ -27,22 +23,21 @@ class Person : NSObject, NSCoding {
         self.isStudent = isStudent
     }
     
+    //Getter methods for student properties
     func myFirstName() -> String{
         return self.firstName
     }
-    
     func myLastName() -> String{
         return self.lastName
     }
-    
     func myFullName() -> String{
         return self.firstName+" "+self.lastName
     }
-    
     func myPic() -> UIImage?{
         return self.studentPic
     }
     
+    // init with coder for loading archived student list
     required init(coder aDecoder: NSCoder) {
         self.firstName = aDecoder.decodeObjectForKey("firstName") as String
         self.lastName = aDecoder.decodeObjectForKey("lastName") as String
@@ -52,7 +47,7 @@ class Person : NSObject, NSCoding {
             self.studentPic = decodedImage
         }
     }
-    
+    //method to encode student object into archive
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.firstName, forKey: "firstName")
         aCoder.encodeObject(self.lastName, forKey: "lastName")

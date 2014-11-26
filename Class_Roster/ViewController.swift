@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    // this person object array will store the students shown in the roster
     var names = [Person]()
     
     override func viewDidLoad() {
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        //if keyed archive exists, students are loaded from it. Otherwise load from plist
         if let namesFromArchive = self.loadFromArchive() as [Person]? {
             self.names = namesFromArchive
         } else {
@@ -36,8 +37,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //reolads tableview and saves changes to archive when this view is loaded
         self.tableView.reloadData()
+        //Student array is sorted in place by last name
+        self.names.sort({$0.lastName < $1.lastName})
+        
         self.saveToArchive()
     }
     
@@ -51,12 +55,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var personToDisplay = self.names[indexPath.row]
         cell.nameLabel.text = personToDisplay.myFullName()
         
+        //limited functionality for student status, but included here
         if  personToDisplay.isStudent {
             cell.studentLabel.text = "student"
         } else {
             cell.studentLabel.text = "non-student"
         }
         
+        //checks if student image has been set, otherwise uses generic image
         if personToDisplay.myPic() != nil {
             cell.personImageView.image = personToDisplay.studentPic
         }

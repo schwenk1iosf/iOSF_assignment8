@@ -21,11 +21,17 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.firstNameField.delegate = self
         self.lastNameField.delegate = self
+        
+        // Set the name text fields with the students current name
+        self.firstNameField.text = self.selectedPerson.myFirstName()
+        self.lastNameField.text = self.selectedPerson.myLastName()
+        
+        //title for the detail view is set here, and will only change when view is reloaded
         self.title = self.selectedPerson.myFullName()
         
+        //this checks whether a student picture has been set for the selected student. If not, the generic image is used
         if selectedPerson.studentPic != nil{
             self.imageView.image = selectedPerson.studentPic
         }
@@ -34,6 +40,7 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        //the selected persons names are be set to the values in the name text fields
         self.selectedPerson.firstName = self.firstNameField.text
         self.selectedPerson.lastName = self.lastNameField.text
     }
@@ -45,7 +52,7 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
     }
 
     @IBAction func camerButtonPressed(sender: AnyObject) {
-        
+        //A camera is checked for first and used as the imagePickerController is present. If not, the photo library is used
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
             self.imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
             self.imagePickerController.delegate = self
@@ -62,8 +69,10 @@ class DetailViewController: UIViewController , UITextFieldDelegate, UIImagePicke
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         let image = info[UIImagePickerControllerEditedImage] as UIImage
+        //image on detail contoller is updated here
         self.imageView.image = image
         self.imagePickerController.dismissViewControllerAnimated(true, completion: nil)
+        //student image is updated here
         self.selectedPerson.studentPic = image
         
     }

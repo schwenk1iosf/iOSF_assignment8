@@ -20,5 +20,35 @@
 		<key>Last Name</key>
 		<string>Asimov</string>
 	</dict>
+	<dict>
+		<key>First Name</key>
+		<string>Greg</string>
+		<key>Last Name</key>
+		<string>Egan</string>
+	</dict>
+	<dict>
+		<key>First Name</key>
+		<string>Frank</string>
+		<key>Last Name</key>
+		<string>Herbert</string>
+	</dict>
+	<dict>
+		<key>First Name</key>
+		<string>Poul</string>
+		<key>Last Name</key>
+		<string>Anderson</string>
+	</dict>
+	<dict>
+		<key>First Name</key>
+		<string>Kim</string>
+		<key>Last Name</key>
+		<string>Robinson</string>
+	</dict>
+	<dict>
+		<key>First Name</key>
+		<string>Neil</string>
+		<key>Last Name</key>
+		<string>Stephenson</string>
+	</dict>
 </array>
 </plist>

@@ -100,6 +100,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generic_user.png" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-UY-rAz">
+                                <rect key="frame" x="200" y="176" width="200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5sK-jI-P7k"/>
+                                    <constraint firstAttribute="height" constant="150" id="CCM-e2-00G"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-wi-XTr">
+                                <rect key="frame" x="255" y="89" width="91.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6p-bm-4xW" userLabel="Camera">
                                 <rect key="frame" x="273" y="550" width="54" height="30"/>
                                 <constraints>
@@ -113,29 +125,23 @@
                                     <action selector="camerButtonPressed:" destination="pUp-00-JxP" eventType="touchUpInside" id="Oig-Wa-hfk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generic_user.png" translatesAutoresizingMaskIntoConstraints="NO" id="ACt-UY-rAz">
-                                <rect key="frame" x="200" y="176" width="200" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="5sK-jI-P7k"/>
-                                    <constraint firstAttribute="height" constant="150" id="CCM-e2-00G"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-wi-XTr">
-                                <rect key="frame" x="255" y="89" width="91.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="5JG-wi-XTr" secondAttribute="centerX" id="0ue-7v-c86"/>
+                            <constraint firstItem="fZR-8d-f0X" firstAttribute="top" secondItem="J6p-bm-4xW" secondAttribute="bottom" constant="82" id="5d6-iP-JHV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J6p-bm-4xW" secondAttribute="trailing" constant="102" id="71H-28-A7f"/>
                             <constraint firstItem="ACt-UY-rAz" firstAttribute="top" secondItem="FzU-rt-dgP" secondAttribute="bottom" constant="31" id="LK5-NH-zua"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J6p-bm-4xW" secondAttribute="trailing" constant="99" id="QdH-PK-58i"/>
+                            <constraint firstItem="J6p-bm-4xW" firstAttribute="top" secondItem="y9E-30-j3k" secondAttribute="bottom" constant="172" id="Se5-qM-xlb"/>
                             <constraint firstItem="ACt-UY-rAz" firstAttribute="top" secondItem="FzU-rt-dgP" secondAttribute="bottom" constant="20" id="cbU-CV-cgW"/>
                             <constraint firstAttribute="centerX" secondItem="5JG-wi-XTr" secondAttribute="centerX" id="hwA-8Z-MeK"/>
                             <constraint firstItem="5JG-wi-XTr" firstAttribute="top" secondItem="y9E-30-j3k" secondAttribute="bottom" constant="25" id="ibD-S9-EuE"/>
                             <constraint firstItem="fZR-8d-f0X" firstAttribute="top" secondItem="J6p-bm-4xW" secondAttribute="bottom" constant="20" id="iiM-Ni-U7G"/>
                             <constraint firstAttribute="centerX" secondItem="FzU-rt-dgP" secondAttribute="centerX" id="s4w-gk-CP1"/>
+                            <constraint firstItem="J6p-bm-4xW" firstAttribute="leading" secondItem="ACt-UY-rAz" secondAttribute="trailing" constant="8" id="tAj-Ln-MHZ"/>
+                            <constraint firstItem="fZR-8d-f0X" firstAttribute="top" secondItem="J6p-bm-4xW" secondAttribute="bottom" constant="134" id="tHa-0d-YCU"/>
                             <constraint firstItem="5JG-wi-XTr" firstAttribute="top" secondItem="y9E-30-j3k" secondAttribute="bottom" constant="58" id="uh6-6h-yGn"/>
                             <constraint firstAttribute="centerX" secondItem="J6p-bm-4xW" secondAttribute="centerX" id="w52-69-9Ym"/>
                             <constraint firstItem="FzU-rt-dgP" firstAttribute="top" secondItem="5JG-wi-XTr" secondAttribute="bottom" constant="7" id="x9x-bK-qIS"/>
@@ -145,6 +151,24 @@
                             <mask key="constraints">
                                 <exclude reference="LK5-NH-zua"/>
                                 <exclude reference="uh6-6h-yGn"/>
+                                <exclude reference="5d6-iP-JHV"/>
+                                <exclude reference="tHa-0d-YCU"/>
+                                <exclude reference="71H-28-A7f"/>
+                                <exclude reference="QdH-PK-58i"/>
+                                <exclude reference="Se5-qM-xlb"/>
+                                <exclude reference="tAj-Ln-MHZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="5d6-iP-JHV"/>
+                                <exclude reference="iiM-Ni-U7G"/>
+                                <exclude reference="tHa-0d-YCU"/>
+                                <exclude reference="71H-28-A7f"/>
+                                <include reference="QdH-PK-58i"/>
+                                <exclude reference="Se5-qM-xlb"/>
+                                <exclude reference="tAj-Ln-MHZ"/>
+                                <exclude reference="w52-69-9Ym"/>
                             </mask>
                         </variation>
                     </view>
